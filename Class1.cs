@@ -34,12 +34,13 @@ public class TextToBlock
                 if (obj is DBText || obj is MText)
                 {
                     text = (obj is DBText) ? ((DBText)obj).TextString : ((MText)obj).Contents;
+                    if(text.Length > 30) text = text.Substring(0, 30);
                     Point3d position = (obj is DBText) ? ((DBText)obj).Position : ((MText)obj).Location;
 
                     System.Guid guid = System.Guid.NewGuid();
 
-                    ed.Command("_-block", text + "-" + guid.ToString(), position, obj.ObjectId, "");
-                    ed.Command("_-insert", text + "-" + guid.ToString(), position, 1, 1, 0);
+                    ed.Command("_-block", guid.ToString(), position, obj.ObjectId, "");
+                    ed.Command("_-insert", guid.ToString(), position, 1, 1, 0);
 
                     PromptSelectionResult lres = ed.SelectLast();
 
