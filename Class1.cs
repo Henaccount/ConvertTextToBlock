@@ -52,7 +52,8 @@ public class TextToBlock
                     attDef.Tag = "tag";
                     attDef.Prompt = "";
                     attDef.TextString = text;
-                    attDef.Visible = false;
+                    attDef.Visible = true;
+                    attDef.Invisible = true;
 
                     // Add the attribute definition to the block definition
                     blockDef.AppendEntity(attDef);
@@ -63,7 +64,8 @@ public class TextToBlock
                     attRef.SetAttributeFromBlock(attDef, blockRef.BlockTransform);
                     attRef.Position = attDef.Position;
                     attRef.TextString = text;
-                    attRef.Visible = false;
+                    attRef.Visible = true;
+                    attRef.Invisible = true;
 
                     blockRef.AttributeCollection.AppendAttribute(attRef);
                     tr.AddNewlyCreatedDBObject(attRef, true);
