@@ -52,7 +52,9 @@ public class TextToBlock
                     attDef.Tag = "tag";
                     attDef.Prompt = "";
                     attDef.TextString = text;
+                    //show property in palette
                     attDef.Visible = true;
+                    //dont show tag label in drawing area
                     attDef.Invisible = true;
 
                     // Add the attribute definition to the block definition
